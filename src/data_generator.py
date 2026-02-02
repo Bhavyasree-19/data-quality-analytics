@@ -221,7 +221,7 @@ def write_jsonl(events, path):
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Generate synthetic datasets for data quality checks.")
+    parser = argparse.ArgumentParser(description="Generate sample datasets for data quality checks.")
     parser.add_argument("--config", default=str(DEFAULT_PROFILE), help="Path to data profile YAML.")
     parser.add_argument("--seed", type=int, help="Override random seed.")
     parser.add_argument("--customers", type=int, help="Number of customers.")

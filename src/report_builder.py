@@ -91,7 +91,7 @@ def main():
 </head>
 <body>
   <h1>Data Quality & Analytics Report</h1>
-  <p class="muted">Generated from synthetic RDBMS + NoSQL datasets.</p>
+  <p class="muted">Generated from sample RDBMS + NoSQL datasets.</p>
   <h2>Run Summary</h2>
   <ul>
     <li><strong>Run ID:</strong> {run_id}</li>
