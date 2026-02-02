@@ -101,6 +101,3 @@ Open the report: `reports\quality_report.html`
 - `data\processed\run_history.jsonl`: run-by-run history
 - `reports\quality_report.html`: human-readable report
 
-## Notes
-- The generator injects a few bad records intentionally to show failures.
-- Data is synthetic (no real customer data). Use your own source to go live.
