@@ -1,0 +1,13 @@
+severity_map:
+  schema_required: critical
+  schema_type: high
+  not_null: critical
+  unique: critical
+  regex: high
+  range: medium
+  allowed: medium
+  fk: critical
+  anomaly_zscore: low
+sla:
+  min_pass_rate: 95
+  max_critical_failures: 0

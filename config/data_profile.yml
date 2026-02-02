@@ -1,0 +1,9 @@
+seed: 42
+sizes:
+  customers: 800
+  orders: 2800
+  web_events: 5000
+date_ranges:
+  customer_start: "2022-01-01"
+  order_start: "2023-01-01"
+  event_start: "2023-03-01"

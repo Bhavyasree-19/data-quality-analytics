@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.streamlit/
+/data/raw/
+/data/processed/
+/data/processed/run_history.jsonl
+/reports/quality_summary.png
+/reports/quality_report.html

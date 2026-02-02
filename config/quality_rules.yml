@@ -1,0 +1,78 @@
+# Data quality rules for each dataset
+customers:
+  primary_key: customer_id
+  not_null:
+    - customer_id
+    - email
+    - created_at
+    - country
+    - state
+    - signup_channel
+    - kyc_status
+  unique:
+    - email
+  regex:
+    email: "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
+  ranges:
+    age:
+      min: 18
+      max: 85
+  allowed_values:
+    status: ["active", "inactive", "suspended"]
+    country: ["US", "IN", "CA", "UK"]
+    state: ["CA", "NY", "TX", "WA", "IL", "TN", "KA", "MH", "DL", "ON", "BC", "QC", "ENG", "SCT"]
+    signup_channel: ["web", "mobile", "partner", "retail"]
+    kyc_status: ["verified", "pending", "failed"]
+    source_system: ["oracle", "mysql", "mongodb", "dynamodb"]
+    gdpr_consent: [true, false]
+
+orders:
+  primary_key: order_id
+  not_null:
+    - order_id
+    - customer_id
+    - order_total
+    - order_date
+    - currency
+    - order_status
+    - payment_method
+  ranges:
+    order_total:
+      min: 0
+      max: 10000
+    discount_pct:
+      min: 0
+      max: 0.5
+    tax_amount:
+      min: 0
+      max: 2000
+    shipping_amount:
+      min: 0
+      max: 500
+  allowed_values:
+    currency: ["USD", "EUR", "GBP", "INR"]
+    payment_method: ["card", "paypal", "bank_transfer", "wallet"]
+    order_status: ["completed", "pending", "cancelled", "refunded"]
+    channel: ["web", "mobile", "partner"]
+    source_system: ["oracle", "mysql"]
+  referential_integrity:
+    customer_id: customers.customer_id
+
+web_events:
+  not_null:
+    - event_id
+    - customer_id
+    - event_type
+    - event_ts
+    - device_type
+  allowed_values:
+    event_type: ["view", "add_to_cart", "checkout", "purchase"]
+    device_type: ["mobile", "desktop", "tablet"]
+    browser: ["chrome", "safari", "edge", "firefox"]
+    region: ["NA", "EU", "APAC", "LATAM"]
+    referrer: ["direct", "email", "social", "ads", "partner"]
+    is_bot: [true, false]
+  ranges:
+    session_length_sec:
+      min: 1
+      max: 3600

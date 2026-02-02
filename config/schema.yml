@@ -1,0 +1,43 @@
+# Expected schema for each dataset
+customers:
+  required:
+    customer_id: int
+    full_name: string
+    email: string
+    age: int
+    status: string
+    created_at: date
+    country: string
+    state: string
+    signup_channel: string
+    kyc_status: string
+    gdpr_consent: bool
+    source_system: string
+
+orders:
+  required:
+    order_id: int
+    customer_id: int
+    order_total: float
+    order_date: date
+    currency: string
+    payment_method: string
+    order_status: string
+    discount_pct: float
+    tax_amount: float
+    shipping_amount: float
+    channel: string
+    source_system: string
+
+web_events:
+  required:
+    event_id: string
+    customer_id: int
+    event_type: string
+    event_ts: datetime
+    session_length_sec: int
+    device_type: string
+    browser: string
+    region: string
+    referrer: string
+    is_bot: bool
